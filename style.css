@@ -1,0 +1,21 @@
+.container{
+    min-height: 500px;
+    background-color: aquamarine;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper{
+    width: 80%;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    
+}
+
+.box{
+    width: calc(100% / 10);
+    aspect-ratio: 1;
+    background-color: red;
+    border: 1px solid black;
+}

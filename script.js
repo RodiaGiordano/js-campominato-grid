@@ -9,6 +9,7 @@ const buttonGrid = document.getElementById('button')
 const difficulty = document.getElementById('difficulty')
 
 
+
 buttonGrid.addEventListener('click', function(){
 
     
@@ -24,9 +25,15 @@ buttonGrid.addEventListener('click', function(){
     
     for(let i = 1; i <= max; i++){
         
-        let cell = document.createElement('div');      
+        let cell = document.createElement('div');    
         
-        cell.classList.add('box');
+        if(max == 100) cell.classList.add('box', 'easy')
+        if(max == 81) cell.classList.add('box', 'medium')
+        if(max == 49) cell.classList.add('box', 'hard')
+
+
+        
+        // cell.classList.add('box');
         
         cell.setAttribute('data-index', i);
         

@@ -1,21 +1,26 @@
 .container{
     min-height: 500px;
     background-color: aquamarine;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 #wrapper{
     width: 80%;
     border: 1px solid black;
     flex-wrap: wrap;
+    margin: 0 auto;
     
 }
 
 .box{
     width: calc(100% / 10);
     aspect-ratio: 1;
-    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-weight: bold;
     border: 1px solid black;
 }

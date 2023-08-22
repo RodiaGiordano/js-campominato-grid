@@ -20,6 +20,10 @@
     gap: 20px
 }
 
+.box.easy{
+    width: calc(100% / 10);
+}
+
 .box.medium{
     width: calc(100% / 9);
 }
@@ -28,13 +32,10 @@
     width: calc(100% / 7);
 }
 
-.box.easy{
-    width: calc(100% / 10);
-}
 
 .box{
     aspect-ratio: 1;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;

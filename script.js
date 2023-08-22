@@ -10,45 +10,79 @@ const difficulty = document.getElementById('difficulty')
 
 
 
-buttonGrid.addEventListener('click', function(){
+buttonGrid.addEventListener('click', function(){ 
 
+    cellContainer.innerHTML = ""; // pulisco la griglia
+
+    let classEl; // variabile d'appoggio per le classi
+
+    let max = parseInt(difficulty.value) // setto max come il value della option difficulty
+
+    if(!max) alert('seleziona una difficoltà')   // controllo che abbia selezionato una difficoltà
     
-    cellContainer.innerHTML = "";
-
-
-    let max = parseInt(difficulty.value)
-
-    if(!max) alert('seleziona una difficoltà')   
     
-    
+    // istruzioni condizionali per settare classEl
+    if(max == 100) classEl = 'box easy' 
+    if(max == 81) classEl = 'box medium'
+    if(max == 49) classEl = 'box hard'
 
     
     for(let i = 1; i <= max; i++){
         
-        let cell = document.createElement('div');    
         
-        if(max == 100) cell.classList.add('box', 'easy')
-        if(max == 81) cell.classList.add('box', 'medium')
-        if(max == 49) cell.classList.add('box', 'hard')
+        const cell = generatedGrid(cellContainer, 'div', classEl, i) // creo gli elementi ed inserisco gli attributi
+       
+        
+    }
+    
+})
 
 
+
+/**
+ * modifica l'inner di un object, può avere un counter [da scartare]
+ * @param {string} object l'elemento da modificare
+ * @param {int} counter possibile inserire un counter
+ * 
+ *  */
+
+function generatedCell (object, counter) {
+
+
+    object.setAttribute('data-index', counter);
         
-        // cell.classList.add('box');
         
-        cell.setAttribute('data-index', i);
+    let cellShow = object.getAttribute('data-index')
         
-        cellContainer.append(cell);
-        
-        let cellShow = cell.getAttribute('data-index')
-        
-        cell.addEventListener('click', function(){
+    object.addEventListener('click', function(){
             this.classList.add('bg-primary');
             
             this.innerText = cellShow;
             
         })
-    }
+}
+
+
+
+/**
+ * Genera un object e lo appende al container, è possibile inserire le classi [da rivedere: aggiungereil for?]
+ * @param {node} container il container in cui inserirlo
+ * @param {string} object il tag da creare
+ * @param {string} classEl defoult empty. settaggio classi
+ * @param {int} counter possibile inserire un counter
+ * 
+ *  */
+
+
+function generatedGrid (container, object, classEl, counter){
     
+    let cell = document.createElement(object);    
     
+    cell.className = classEl
+
+    generatedCell (cell, counter)
+
+    container.append(cell);
     
-})
+    return cell;
+}
